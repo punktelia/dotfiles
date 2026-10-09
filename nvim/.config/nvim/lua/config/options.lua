@@ -6,7 +6,5 @@ vim.opt.shiftwidth = 4
 vim.opt.ts = 4
 vim.opt.expandtab = true
 
-
-
-
+vim.o.winborder = "rounded"
 
