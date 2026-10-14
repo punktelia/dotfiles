@@ -3,9 +3,10 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path"
+        "hrsh7th/cmp-path",
     },
     config = function()
+        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp = require("cmp")
         cmp.setup({
             preselect = cmp.PreselectMode.Item,
@@ -46,5 +47,9 @@ return {
                 { name = "buffer", keyword_length = 3 },
             },
         })
+        cmp.event:on(
+            'confirm_done',
+            cmp_autopairs.on_confirm_done()
+        )
     end,
 }
